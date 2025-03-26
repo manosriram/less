@@ -71,7 +71,21 @@ public class Article {
     public void BuiltContentSegment() {
         StringBuilder c = new StringBuilder();
         while (reader.hasNextLine()) {
-            c.append(String.format("<p>%s</p>",reader.nextLine())).append("\n");
+            StringBuilder line = new StringBuilder(reader.nextLine());
+            if (line.toString().contains("```")) {
+                line = new StringBuilder(line.toString().replace("```", "<code style='background: grey;'>"));
+                while (reader.hasNextLine()) {
+                    String code = reader.nextLine();
+                    if (code.contains("```")) {
+                        code = code.replace("```", "</code>");
+                        line.append(code);
+                        break;
+                    } else {
+                        line.append(String.format("<p>%s</p>", code));
+                    }
+                }
+            }
+            c.append(String.format("<p>%s</p>", line.toString())).append("\n");
         }
         this.contentsegment.setContent(c.toString());
     }
