@@ -1,17 +1,17 @@
 ---
-title: Hi
-author: mano
-published_at: 26th March
+title: hi
+author: manosriram
+published_at: 27th March, 2025
 ---
 
 Hey There!
-Hi and this is a single line.
 ```
 a = 1
 b = 2
 print(a+b)
 ```
-alksdjlasjk
+
+Codeblocks are in python.
 
 ```
 print("another code block!")

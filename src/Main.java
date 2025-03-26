@@ -14,8 +14,7 @@ class Main {
         Generator g = new Generator();
         List<Article> articles = p.Parse();
 
-        File f = new File("dist");
-        f.mkdir();
+        new File("dist").mkdir();
 
         FileWriter indexWriter = new FileWriter("dist/index.html");
         for (Article article: articles) {
