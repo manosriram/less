@@ -18,7 +18,6 @@ class Main {
 
         FileWriter indexWriter = new FileWriter("dist/index.html");
         for (Article article: articles) {
-            System.out.println(Objects.equals(article.infosegment.getTitle(), "homepage"));
             if (Objects.equals(article.infosegment.getTitle(), "homepage")) {
                 indexWriter.write(g.IndexHtmlTemplate().replace("{content}", article.contentsegment.getContent()));
             } else {
